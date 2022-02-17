@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using CarRentalManagement.Server.Data;
 using CarRentalManagement.Server.Models;
+using CarRentalManagement.Server.Data.ApplicationDbContext;
 
 namespace CarRentalManagement.Server
 {
@@ -32,7 +33,7 @@ namespace CarRentalManagement.Server
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentityServer()
